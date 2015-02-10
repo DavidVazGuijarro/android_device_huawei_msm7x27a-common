@@ -25,6 +25,8 @@ USE_CAMERA_STUB := true
 # Inherit from the proprietary version
 -include vendor/huawei/msm7x27a-common/BoardConfigVendor.mk
 
+BOARD_HARDWARE_CLASS += device/sony/android_device_huawei_msm7x27a-common/cmhw
+
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
