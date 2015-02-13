@@ -142,6 +142,8 @@ on boot
     write /sys/module/lowmemorykiller/parameters/adj 0,1,2,4,9,12
     write /proc/sys/vm/min_free_kbytes 4096
     write /proc/sys/vm/extra_free_kbytes 4096
+    
+    # zRAM    
     write /proc/sys/vm/page-cluster 0
 
     write /sys/module/pm2/modes/cpu0/standalone_power_collapse/idle_enabled 1
@@ -186,6 +188,8 @@ on boot
 on fs
     # mount mmc partitions
     mount_all /fstab.huawei
+    
+    # zRAM
     swapon_all /fstab.huawei
 
 # msm specific files that need to be created on /data
@@ -225,7 +229,7 @@ on post-fs-data
     chown system system /sys/class/android_usb/android0/f_rndis/ethaddr
     chmod 0660 /sys/class/android_usb/android0/f_rndis/ethaddr
 
-    write /sys/class/leds/button-backlight/max_brightness 80    
+    write /sys/class/leds/button-backlight/max_brightness 75    
 
     setprop vold.post_fs_data_done 1
 
