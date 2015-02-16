@@ -21,6 +21,7 @@ dev.pm.dyn_sample_period=700000
 debug.sf.hw=1
 debug.egl.hw=1
 debug.composition.type=gpu
+debug.composition.type=cpu
 persist.hwc.mdpcomp.enable=false
 debug.mdpcomp.maxlayer=3
 debug.mdpcomp.logs=0
@@ -59,13 +60,6 @@ ro.zram.default=0
 ro.sys.fw.bg_apps_limit=7
 sys.mem.max_hidden_apps=7
 ro.config.max_starting_bg=4
-
-# Dalvik
-dalvik.vm.checkjni=0
-dalvik.vm.debug.alloc=0 
-dalvik.vm.dexopt-data-only=1
-dalvik.vm.heapgrowthlimit=56m
-dalvik.vm.heapsize=132m
 
 # Misc
 ro.use_data_netmgrd=true

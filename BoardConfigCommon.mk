@@ -66,6 +66,7 @@ BOARD_WANTS_EMMC_BOOT := true
 # Compiler flags
 TARGET_GLOBAL_CFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4 -mtune=cortex-a5
 TARGET_GLOBAL_CPPFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4 -mtune=cortex-a5
+COMMON_GLOBAL_CFLAGS += -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64
 
 # Audio
 BOARD_USES_LEGACY_ALSA_AUDIO := true
@@ -75,6 +76,7 @@ BOARD_HAVE_BLUETOOTH := true
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
+COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB
 
 # GPS
 BOARD_USES_QCOM_GPS := true
@@ -152,3 +154,6 @@ endif
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
+
+# Enable Minikin text layout engine (will be the default soon)
+USE_MINIKIN := true
