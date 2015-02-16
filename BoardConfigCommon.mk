@@ -113,6 +113,8 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x1400000
 
 BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_USERIMAGES_USE_EXT4 := true
+#TARGET_USERIMAGES_USE_YAFFS2 := true DESACTIVADO TEMPORALMENTE
+#TARGET_USERIMAGES_USE_F2FS := true DESACTIVADO TEMPORALMENTE
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/msm7x27a-common/recovery/recovery-keys.c
@@ -132,20 +134,16 @@ BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
 TARGET_USE_CUSTOM_SECOND_LUN_NUM := 1
 
-# Wi-Fi
+TARGET_SYSTEM_PROP := device/huawei/msm7x27a-common/system.prop
+
+# WiFi
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_HOSTAPD_DRIVER := NL80211
 TARGET_CUSTOM_WIFI := ../../device/huawei/msm7x27a-common/libhardware_legacy/wifi/wifi.c
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Enable dex-preoptimization to speed up first boot sequence
-ifeq ($(HOST_OS),linux)
-  ifeq ($(TARGET_BUILD_VARIANT),user)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-  endif
-endif
+WITH_DEXPREOPT := true
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
