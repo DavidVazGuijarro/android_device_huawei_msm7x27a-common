@@ -49,7 +49,11 @@ media.stagefright.enable-aac=true
 media.stagefright.enable-qcp=true
 media.stagefright.enable-meta=false
 
+# Disable atlas services on low-ram targets
+config.disable_atlas=true
+
 # Memory
+ro.config.low_ram=true
 ro.ksm.default=1
 ro.zram.default=0
 ro.sys.fw.bg_apps_limit=7
