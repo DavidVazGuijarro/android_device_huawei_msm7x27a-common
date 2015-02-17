@@ -129,7 +129,27 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.enable_key_repeat=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.hwc.dynThreshold=1.9
+    debug.composition.type=dyn \
+    debug.hwc.dynThreshold=1.9 \
+    persist.hwc.mdpcomp.enable=false \
+    debug.mdpcomp.logs=0 \
+    debug.gralloc.map_fb_memory=1 \
+    debug.hwc.fakevsync=1 \
+    ro.max.fling_velocity=4000 \
+    ro.opengles.version=131072 \
+    ro.sf.lcd_density=200 \
+    persist.sys.force_highendgfx=true
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapgrowthlimit=52m \
+    dalvik.vm.heapsize=132m \
+    ro.config.low_ram=true
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    com.qc.hardware=true \
+    dev.pm.dyn_sample_period=700000 \
+    dev.pm.dyn_samplingrate=1 \
+    ro.vendor.extension_library=/system/lib/libqc-opt.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ril.subscription.types=NV,RUIM \
@@ -143,12 +163,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=eth0 \
-    wifi.supplicant_scan_interval=180
+    wifi.supplicant_scan_interval=60
 
 PRODUCT_PROPERTY_OVERRIDES += \
     audio.gapless.playback.disable=true \
     ro.sys.fw.bg_apps_limit=16 \
     ro.config.max_starting_bg=8
+
+# Stagefright
+PRODUCT_PROPERTY_OVERRIDES += \
+   media.stagefright.enable-player=true \
+   media.stagefright.enable-meta=false \
+   media.stagefright.enable-scan=true \
+   media.stagefright.enable-http=true \
+   media.stagefright.enable-fma2dp=true \
+   media.stagefright.enable-aac=true \
+   media.stagefright.enable-qcp=true
 
 # Newer camera API isn't supported.
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -46,12 +46,6 @@ on init
     symlink /storage/sdcard0 /mnt/internal_sd
     symlink /storage/sdcard0 /internal_sd
 
-service nfc_check /system/bin/nfc_check
-    class main
-    user root
-    group root
-    oneshot  
-
 on boot
     mount debugfs debugfs /sys/kernel/debug
 
@@ -152,21 +146,6 @@ on boot
     write /sys/module/pm2/modes/cpu1/standalone_power_collapse/suspend_enabled 1
     write /sys/module/pm2/modes/cpu0/power_collapse/suspend_enabled 1
     write /sys/module/pm2/modes/cpu0/power_collapse/idle_enabled 1
-
-    # NFC
-    setprop ro.nfc.port "I2C"
-    chmod 0600 /dev/pn544
-    chown nfc nfc /dev/pn544
-    
-    # NFC local data and nfcee xml storage
-    mkdir /data/nfc 0755 nfc nfc
-    mkdir /data/nfc/param 755 nfc nfc
-    
-    # NFC local data and misc
-    mkdir /data/misc/nfc 0755 nfc nfc
-    mkdir /data/misc/nfc/param 0755 nfc nfc
-    user nfc
-    group system
     
 # Backward compatibility
     symlink /system/etc /etc
@@ -229,7 +208,7 @@ on post-fs-data
     chown system system /sys/class/android_usb/android0/f_rndis/ethaddr
     chmod 0660 /sys/class/android_usb/android0/f_rndis/ethaddr
 
-    write /sys/class/leds/button-backlight/max_brightness 75    
+    write /sys/class/leds/button-backlight/max_brightness 70    
 
     setprop vold.post_fs_data_done 1
 
